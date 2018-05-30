@@ -59,9 +59,10 @@ class InteractiveRecord
   end
 
   def self.find_by(attri)
-    @column_name = attri.flatten[0]
-    @column_value = attri.flatten[1]
-    sql = "SELECT * FROM #{self.table_name} WHERE #{@column_name}  = #{@column_value}"
+    column_name = attri.flatten[0]
+    value = attri.flatten[1]
+    column_value = value.class == Fixnum ? value : "value"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{column_name}  = #{column_value}"
     DB[:conn].execute(sql)
   end
 

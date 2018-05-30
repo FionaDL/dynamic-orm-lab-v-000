@@ -63,7 +63,7 @@ class InteractiveRecord
       @column_name = k
       @column_value = v
     end
-    sql = "SELECT * FROM #{self.table_name} WHERE #{@column_name} = #{"@column_value"}"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{@column_name} = #{@column_value}"
     DB[:conn].execute(sql)
   end
 

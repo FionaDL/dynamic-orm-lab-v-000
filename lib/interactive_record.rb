@@ -60,11 +60,10 @@ class InteractiveRecord
 
   def self.find_by(attri)
     attri.each do |k, v|
-      column_name = k
-      column_value = v
+      @column_name = k
+      @column_value = v
     end
-    binding.pry
-    sql = "SELECT * FROM #{self.table_name} WHERE #{k} = #{v}"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{@column_name} = #{@column_value}"
     DB[:conn].execute(sql)
   end
 

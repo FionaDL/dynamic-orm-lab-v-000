@@ -64,7 +64,7 @@ class InteractiveRecord
       column_value = v
     end
     binding.pry
-    sql = "SELECT * FROM #{self.table_name} WHERE #{"k"} = #{"v"}"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{k} = #{v}"
     DB[:conn].execute(sql)
   end
 

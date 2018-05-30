@@ -61,7 +61,7 @@ class InteractiveRecord
   def self.find_by(attri)
     @column_name = attri.flatten[0].to_s
     binding.pry
-    @column_value 
+    @column_value
     sql = "SELECT * FROM #{self.table_name} WHERE  = #{@column_value}"
     DB[:conn].execute(sql)
   end

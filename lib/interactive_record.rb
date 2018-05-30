@@ -60,7 +60,9 @@ class InteractiveRecord
 
   def self.find_by(attri)
     @column_name = attri.flatten[0].to_s
-    sql = "SELECT * FROM #{self.table_name} WHERE #{@column_name} = #{@column_value}"
+    binding.pry
+    @column_value 
+    sql = "SELECT * FROM #{self.table_name} WHERE  = #{@column_value}"
     DB[:conn].execute(sql)
   end
 

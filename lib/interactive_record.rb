@@ -59,9 +59,13 @@ class InteractiveRecord
   end
 
   def self.find_by(attri)
+    attri.each do |k, v|
+      column_name = k
+      column_value = v
+    end
     binding.pry
-    sql = "SELECT * FROM #{self.table_name} WHERE ? = #{"attribute"}"
-    DB[:conn].execute(sql, attri)
+    sql = "SELECT * FROM #{self.table_name} WHERE #{"k"} = #{"v"}"
+    DB[:conn].execute(sql)
   end
 
 
